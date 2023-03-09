@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zlong.dao.ProductMapper">
+    <select id="getProductNums" resultType="Integer" parameterType="com.zlong.entity.dto.ProductDto">
+        SELECT COUNT(*) FROM product_table WHERE 1=1
+        <if test="id != null and id !=''">
+            AND id=#{id}
+        </if>
+        <if test="name != null and name !=''">
+            AND name=#{name}
+        </if>
+        <if test="date != null and date !=''">
+            AND date=#{date}
+        </if>
+        <if test="number != null and number !=''">
+            AND number=#{number}
+        </if>
+        <if test="price != null and price !=''">
+            AND price=#{price}
+        </if>
+    </select>
+</mapper>
